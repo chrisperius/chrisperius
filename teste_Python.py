@@ -61,32 +61,37 @@ def email_cadastro():
 print(email_cadastro())
 
 """
-
+"""
 # Método split() e método strip():
 # O método split() divide uma string em uma lista de strings, separando-as por um delimitador.
 # Exemplo:
 
 def seletor_de_nome():
     nome_completo = input("Escreva seu nome e sobrenome: ")
-    primeiro_nome = nome_completo.split()[-1]
-    return f"seu primeiro nome é {primeiro_nome} e seu segundo nome é {ultimo}
+    primeiro_nome = nome_completo.split()[0]
+    ultimo_nome = nome_completo.split()[-1]
+    return f"Seu primeiro nome é {primeiro_nome} e seu último nome é {ultimo_nome}"
 
 print(seletor_de_nome())
 
 def remover_espaços():
-    nome = input(" Digite seu nome: ")
+    nome = input("Digite seu nome: ")
     return nome.strip()
 
 print(remover_espaços())
 
-def lista_de_usuários():
-    lista de usuários = [" João ", " Maria ", " Jose ", " Pedro ", " Ana "]
-    usuário_selecionado = int(input(" Digite a colocação do usuário: "))
-    usuário_selecionado = lista_de_usuários
-    [usuários_selecionado - 1].strip().split()
-    return usuário_selecionado[0]
+def lista_de_usuarios():
+    lista_de_usuarios = ["João", "Maria", "Jose", "Pedro", "Ana"]
+    usuario_selecionado = int(input("Digite a posição do usuário: "))
+    
+    if 1 <= usuario_selecionado <= len(lista_de_usuarios):
+        usuario_selecionado = lista_de_usuarios[usuario_selecionado - 1].strip()
+        return f"Usuário selecionado: {usuario_selecionado}"
+    else:
+        return "Posição de usuário inválida."
 
-print(lista_de_usuários())
+print(lista_de_usuarios())
+"""
 
 #criar um menu de usuário com três funções a saber
 ### 1 - contar caracteres
@@ -100,9 +105,37 @@ def contar_caracteres():
 
 def contar_a():
     texto = input("Digite uma frase: ")
-    return f"A letra 'a' aparece  {texto.count('a') + texto}  "
+    return f"A letra 'a' aparece {texto.lower().count('a')} vezes na frase."
 
-def replace_a
+def substituir_a_por_arroba():
+    texto = input("Digite uma frase: ")
+    texto_modificado = texto.replace('a', '@')
+    return f"Frase com 'a' substituído por '@': {texto_modificado}"
+
+def menu_usuario():
+    while True:
+        print("\nMENU DE USUÁRIO:")
+        print("1 - Contar caracteres")
+        print("2 - Contar letras 'a'")
+        print("3 - Substituir letras 'a' por '@'")
+        print("4 - Sair do programa")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == '1':
+            print(contar_caracteres())
+        elif opcao == '2':
+            print(contar_a())
+        elif opcao == '3':
+            print(substituir_a_por_arroba())
+        elif opcao == '4':
+            print("Programa encerrado. Até logo!")
+            break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
+
+# Chamar a função do menu para iniciar o programa
+menu_usuario()
 
 
 
